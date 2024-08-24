@@ -12,7 +12,17 @@ bons.ai is web application, which allows you to perform Question Answering task 
 python -m venv virtualenv
 ```
 
-2. Install all the required modules.
+2. Activate the virtual environment
+
+```
+//for windows
+virtualenv/Scripts/Activate.ps1 //In Powershell
+
+//for linux/ Mac
+source virtualenv/bin/activate
+```
+
+3. Install all the required modules.
 
 ```
 pip install -r requirements.txt
