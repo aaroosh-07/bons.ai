@@ -40,18 +40,15 @@ API_TOKEN = "<your api token>"
 
 ### Running the script
 
-1. Activate the virtual environment
+Run the following commad after activating the virtual environment.
 
 ```
-//for windows
-virtualenv/Scripts/Activate.ps1 //In Powershell
-
-//for linux/ Mac
-source virtualenv/bin/activate
-```
-
-2. Run the following commad
-
-```
+cd experiments
 python main.py
+```
+
+### Running FastAPI server
+
+```
+fastapi dev server.py
 ```
