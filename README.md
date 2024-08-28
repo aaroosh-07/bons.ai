@@ -49,6 +49,8 @@ python main.py
 
 ### Running FastAPI server
 
+This command will run fastapi development server on localhost:8000
+
 ```
 fastapi dev server.py
 ```
