@@ -2,7 +2,7 @@
 
 bons.ai is web application, which allows you to perform Question Answering task on pdf files uploaded or text provided. Currently we have developed a simple python script to use hugging face models to perform question answering task.
 
-## Setup
+## Getting Started
 
 ### Setting up Environment
 
@@ -51,4 +51,63 @@ python main.py
 
 ```
 fastapi dev server.py
+```
+
+## API Endpoints
+
+The following API endpoints have been implmented.
+
+### Request
+
+`GET /`
+
+```
+curl -X 'GET' \
+  'http://127.0.0.1:8000/' \
+  -H 'accept: application/json'
+```
+
+### Response body
+
+```
+{
+  "Message": "welcome to bons.ai"
+}
+```
+
+### Request
+
+`POST /prompt`
+
+```
+curl -X 'POST' \
+  'http://127.0.0.1:8000/prompt' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "question": "what is my name",
+  "context": "my name is aaroosh",
+  "model": "distilbert-base-cased"
+}'
+```
+
+In this POST request we need to send request body having the following structure
+
+```
+{
+  "question": string,
+  "context": string,
+  "model": "distilbert-base-cased" or "roberta-base-squad2" or "google-bert" or "electra_large_discriminator"
+}
+```
+
+### Response body
+
+```
+{
+  "score": 0.9413116574287415,
+  "start": 11,
+  "end": 18,
+  "answer": "aaroosh"
+}
 ```
