@@ -27,6 +27,6 @@ async def prompt_llm(prompt: Prompt, response: Response):
         }
     api_url = selectModel(prompt.model)
     data = await send_rest_api_req(payload= payload, headers= headers, api_url= api_url)
-    if "error" in data.keys():
+    if data.status_code == 503:
         response.status_code = status.HTTP_503_SERVICE_UNAVAILABLE
-    return data
+    return data.content
