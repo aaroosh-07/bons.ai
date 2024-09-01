@@ -40,12 +40,7 @@ API_TOKEN = "<your api token>"
 
 ### Running the script
 
-Run the following commad after activating the virtual environment.
-
-```
-cd experiments
-python main.py
-```
+Check this [documentation](experiments.md) on how to run experimental scripts.
 
 ### Running FastAPI server
 

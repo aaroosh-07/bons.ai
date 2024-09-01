@@ -3,9 +3,10 @@ from langchain_community.vectorstores import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from hfQnA import query, API_URL
+import os
+import sys
 
-def load_and_split_doc():
-    path = r'.\documents\alchemist.pdf'
+def load_and_split_doc(path: str):
     loader = PyPDFLoader(path, extract_images=False)
     docs = loader.load_and_split()
 
@@ -43,7 +44,10 @@ def run_rag():
     choice = input("Do you want to load the document(y/n): ")
 
     if choice == "y" or choice == "Y":
-        chunks = load_and_split_doc()
+        assert len(sys.argv) > 1, "Pdf file path not provided"
+        pathStr = sys.argv[1]
+        assert os.path.exists(pathStr), "File does not exist"
+        chunks = load_and_split_doc(os.path.abspath(pathStr))
         load_chunks_to_vectorstore(chunks)
 
     question = input("Ask any question from document: ")
