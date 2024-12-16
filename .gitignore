@@ -2,3 +2,6 @@
 .vscode
 virtualenv
 *.pyc
+*.bin
+*.pdf
+*.sqlite3
